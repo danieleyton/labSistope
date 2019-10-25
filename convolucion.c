@@ -77,7 +77,16 @@ matriz* convolucion(matriz* imagen, matriz* filtro)
                     }
                 }
             }
-            resultado->matriz[i][j] = resultado->matriz[i][j]/(filtro->filas*filtro->columnas);
+            int aux = resultado->matriz[i][j]/(filtro->filas*filtro->columnas);
+            if (aux <= 255)
+            {
+                resultado->matriz[i][j] = resultado->matriz[i][j]/(filtro->filas*filtro->columnas);
+            }
+            else
+            {
+                resultado->matriz[i][j] = 255;
+            }
+            
         }
     }
     return resultado;
